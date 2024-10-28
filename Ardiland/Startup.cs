@@ -40,7 +40,10 @@ namespace Ardiland
             services.AddImageUploadService(Configuration);
 
             services.AddControllers().AddNewtonsoftJson();
-            
+
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+
             // Add CORS policy to allow requests from any domain during development
             services.AddCors(options =>
             {
@@ -82,7 +85,10 @@ namespace Ardiland
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
+            }); 
+            
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
     }
 }
