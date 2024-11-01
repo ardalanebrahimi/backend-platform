@@ -5,7 +5,7 @@ using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
-namespace YourNamespace.Services
+namespace Ardiland.Services
 {
     public class ImageUploadService : IImageUploadService
     {

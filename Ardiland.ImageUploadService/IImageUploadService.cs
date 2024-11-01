@@ -3,7 +3,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace YourNamespace.Services
+namespace Ardiland.Services
 {
     public interface IImageUploadService
     {

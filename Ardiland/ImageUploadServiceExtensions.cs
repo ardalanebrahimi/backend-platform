@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using YourNamespace.Services;
+using Ardiland.Services;
 
-namespace YourNamespace.Extensions
+namespace Ardiland.Extensions
 {
     public static class ImageUploadServiceExtensions
     {

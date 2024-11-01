@@ -7,11 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using YourNamespace.Data;
-using YourNamespace.Models;
-using YourNamespace.Services;
+using Ardiland.Data;
+using Ardiland.Models;
+using Ardiland.Services;
+using Microsoft.AspNetCore.Authorization;
 
-namespace YourNamespace.Controllers
+namespace Ardiland.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -48,6 +49,7 @@ namespace YourNamespace.Controllers
         }
 
         // POST: api/Products
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct([FromForm] ProductWithImage productWithImage)
         {
@@ -82,6 +84,7 @@ namespace YourNamespace.Controllers
 
 
         // PUT: api/products/{id}
+        [Authorize]
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> UpdateProduct(Guid id, [FromForm] ProductWithImage updatedProduct)
@@ -116,6 +119,7 @@ namespace YourNamespace.Controllers
 
 
         // DELETE: api/Products/{id}
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(Guid id)
         {
@@ -127,9 +131,10 @@ namespace YourNamespace.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
-        
-        
+
+
         // DELETE: api/products/{id}/images
+        [Authorize]
         [HttpDelete("{id}/images")]
         public async Task<IActionResult> DeleteProductImage(Guid id, [FromQuery] string imageUrl)
         {

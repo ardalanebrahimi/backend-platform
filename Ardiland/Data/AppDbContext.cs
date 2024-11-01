@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using YourNamespace.Models;
+using Ardiland.Models;
 
-namespace YourNamespace.Data
+namespace Ardiland.Data
 {
     public class AppDbContext : DbContext
     {
