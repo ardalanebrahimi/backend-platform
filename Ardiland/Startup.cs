@@ -15,6 +15,7 @@ using Ardiland.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Ardiland.Entities;
 
 
 namespace Ardiland
@@ -76,6 +77,9 @@ namespace Ardiland
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
+            services.Configure<PaymentOptions>(Configuration.GetSection("PaymentProviders"));
+            services.AddSingleton<PayPalService>();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
