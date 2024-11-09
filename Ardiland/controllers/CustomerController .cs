@@ -23,7 +23,7 @@ public class CustomerController : ControllerBase
     public async Task<IActionResult> Register([FromBody] RegisterCustomerRequest request)
     {
         // Check if the username or email already exists
-        if (_context.Customers.Any(c => c.Username == request.Username || c.Email == request.Email))
+        if (_context.Customers.Any(c => c.Email == request.Email))
         {
             return BadRequest("Username or email already exists.");
         }
@@ -34,8 +34,10 @@ public class CustomerController : ControllerBase
         // Create and save the new customer
         var newCustomer = new Customer
         {
-            Username = request.Username,
+            Name = request.Name,
             Email = request.Email,
+            Address = request.Address,
+            Phone = request.Phone,
             PasswordHash = passwordHash
         };
 
