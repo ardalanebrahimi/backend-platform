@@ -20,11 +20,7 @@ namespace Ardiland
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, config) =>
                 {
-                    //var env = context.HostingEnvironment;
-                    //if (env.IsDevelopment())
-                    //{
-                        config.AddUserSecrets<Startup>();
-                    //}
+                    config.AddUserSecrets<Startup>();
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
